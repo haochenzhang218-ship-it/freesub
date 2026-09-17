@@ -37,7 +37,7 @@ import subprocess
 import ipaddress
 import urllib.parse
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 try:
@@ -63,7 +63,171 @@ SOURCE_URLS = [
     "https://raw.githubusercontent.com/freefq/free/master/v2",
     "https://open.heleimail.workers.dev/",
     "https://www.ermao.net/sub/v2ray/ermao.net",
+    "https://raw.githubusercontent.com/free18/v2ray/refs/heads/main/c.yaml",
 ]
+
+
+# daily-updating sources (URLs contain the day of the run; generated dynamically):
+#   - freeclashnode daily #2 txt (base64 sharelink bundle):
+#       https://node.freeclashnode.com/uploads/{YYYY}/{MM}/2-{YYYYMMDD}.txt
+#   - yoyapai daily Clash YAML:
+#       https://freenode.yoyapai.com/{YYYY}/{MM}/{DD}-yoyapai.com-clash-vpn-mianfei-jiedian.yaml
+# today's file is usually published a few hours later -> try today/yesterday/day-before,
+# never hardcode a date.
+def build_daily_source_urls(now=None):
+    base = now or datetime.now(timezone.utc)
+    urls = []
+    for offset in range(3):
+        d = (base - timedelta(days=offset)).date()
+        urls.append(
+            "https://node.freeclashnode.com/uploads/%d/%02d/2-%s.txt"
+            % (d.year, d.month, d.strftime("%m%d")))
+        urls.append(
+            "https://freenode.yoyapai.com/%d/%02d/%d-yoyapai.com-clash-vpn-mianfei-jiedian.yaml"
+            % (d.year, d.month, d.day))
+    return urls
+
+def extract_nodes_from_clash_yaml(text: str) -> set:
+    """Clash 订阅 YAML → 可用 sharelink 集合.
+
+    仅处理 proxies 数组中的真实代理条目 (vless/vmess/trojan/ss/hysteria2),
+    把 server/port/认证字段反向拼成标准 sharelink, 交由现有 parse_node_uri
+    与既定的各协议解析器 — 不改变任何分类/判定标准.
+    select/url/fallback/direct/verify 等非代理条目直接跳过.
+    """
+    results = set()
+    if not text:
+        return results
+    try:
+        data = yaml.safe_load(text)
+    except Exception:
+        return results
+    if not isinstance(data, dict):
+        return results
+    proxies = data.get("proxies") or []
+    if not isinstance(proxies, list):
+        return set()
+    for p in proxies:
+        if not isinstance(p, dict):
+            continue
+        ptype = str(p.get("type", "")).lower()
+        if ptype not in ("vless", "vmess", "trojan", "ss", "shadowsocks",
+                         "hysteria2", "hy2", "hysteria"):
+            continue
+        server = p.get("server")
+        port = p.get("port")
+        if not server or not port:
+            continue
+        port = int(port)
+        sni = p.get("servername") or p.get("sni") or ""
+        if ptype == "vless":
+            u = str(p.get("uuid", "")).strip()
+            if not u:
+                continue
+            link = "vless://%s@%s:%d" % (u, server, port)
+            extra = []
+            network = str(p.get("network", "tcp")).lower()
+            if network == "ws":
+                extra.append("type=ws")
+                ws_opts = p.get("ws-opts") or {}
+                if ws_opts.get("path"):
+                    extra.append("path=" + urllib.parse.quote(str(ws_opts["path"]), safe=""))
+                if sni:
+                    extra.append("host=" + str(sni))
+            if p.get("reality-opts"):
+                ro = p.get("reality-opts") or {}
+                pbk = str(ro.get("public-key", "")).strip()
+                if pbk:
+                    extra.append("security=reality")
+                    extra.append("sni=" + str(sni or server))
+                    extra.append("pbk=" + pbk)
+                    if ro.get("short-id"):
+                        extra.append("sid=" + str(ro["short-id"]))
+            elif p.get("tls") is True or p.get("tls") in (1, "true"):
+                extra.append("security=tls")
+                extra.append("sni=" + str(sni or server))
+            flow = str(p.get("flow", "")).strip()
+            if flow:
+                extra.append("flow=" + flow)
+            fp = p.get("client-fingerprint")
+            if fp:
+                extra.append("fp=" + str(fp))
+            if extra:
+                link += "?" + "&".join(extra)
+            results.add(link)
+        elif ptype == "vmess":
+            u = str(p.get("uuid", "")).strip()
+            if not u:
+                continue
+            aid = p.get("alterId") or p.get("alterid") or 0
+            payload = {
+                "v": "2",
+                "ps": str(p.get("name", ""))[:60],
+                "add": str(server),
+                "port": str(port),
+                "id": u,
+                "aid": str(aid),
+                "scy": "auto",
+                "net": str(p.get("network", "tcp")).lower(),
+                "type": "none",
+                "host": str(sni),
+                "path": "",
+                "tls": "tls" if p.get("tls") in (True, 1, "true") else "",
+                "sni": str(sni),
+            }
+            if payload["net"] == "ws":
+                ws_opts = p.get("ws-opts") or {}
+                payload["path"] = str(ws_opts.get("path", ""))
+            results.add("vmess://" + base64.b64encode(
+                json.dumps(payload).encode()).decode())
+        elif ptype == "trojan":
+            pwd = str(p.get("password", "")).strip()
+            if not pwd:
+                continue
+            link = "trojan://%s@%s:%d" % (urllib.parse.quote(pwd, safe=""), server, port)
+            extra = ["security=tls"]
+            if sni:
+                extra.append("sni=" + str(sni))
+            if p.get("allow-insecure") or p.get("skip-cert-verify") or p.get("skip_cert_verify"):
+                extra.append("allowInsecure=1")
+            network = str(p.get("network", "tcp")).lower()
+            if network == "ws":
+                extra.append("type=ws")
+                ws_opts = p.get("ws-opts") or {}
+                if ws_opts.get("path"):
+                    extra.append("path=" + urllib.parse.quote(str(ws_opts["path"]), safe=""))
+                if sni:
+                    extra.append("host=" + str(sni))
+            link += "?" + "&".join(extra)
+            results.add(link)
+        elif ptype in ("ss", "shadowsocks"):
+            method = str(p.get("cipher", "chacha20-ietf-poly1305")).strip()
+            pwd = str(p.get("password", ""))
+            if not pwd:
+                continue
+            userinfo = base64.b64encode(("%s:%s" % (method, pwd)).encode()).decode()
+            results.add("ss://%s@%s:%d" % (userinfo, server, port))
+        else:  # hysteria2
+            pwd = str(p.get("password", ""))
+            if not pwd:
+                continue
+            link = "hysteria2://%s@%s:%d" % (urllib.parse.quote(pwd, safe=""), server, port)
+            extra = []
+            if sni:
+                extra.append("sni=" + str(sni))
+            if p.get("skip-cert-verify") or p.get("skip_cert_verify"):
+                extra.append("insecure=1")
+            obfs = p.get("obfs")
+            if obfs:
+                extra.append("obfs=" + str(obfs))
+                if p.get("obfs-password"):
+                    extra.append("obfs-password=" + urllib.parse.quote(str(p["obfs-password"]), safe=""))
+            if extra:
+                link += "?" + "&".join(extra)
+            results.add(link)
+    return results
+
+
 
 OUTPUT_DIR = "output"
 COUNTRY_DIR = os.path.join(OUTPUT_DIR, "by-country")
@@ -983,7 +1147,10 @@ def fetch_raw_nodes() -> list:
             try:
                 r = http_get(url, timeout=30)
                 if r.status_code == 200:
-                    got = extract_nodes_from_text(r.text)
+                    if url.lower().endswith((".yaml", ".yml")):
+                        got = extract_nodes_from_clash_yaml(r.text)
+                    else:
+                        got = extract_nodes_from_text(r.text)
                     return url, got, None
                 last_err = f"HTTP {r.status_code}"
             except Exception as e:
@@ -993,7 +1160,8 @@ def fetch_raw_nodes() -> list:
         return url, set(), last_err
 
     with ThreadPoolExecutor(MAX_WORKERS_FETCH) as ex:
-        futs = [ex.submit(_fetch, u) for u in SOURCE_URLS]
+        all_urls = list(SOURCE_URLS) + build_daily_source_urls()
+        futs = [ex.submit(_fetch, u) for u in all_urls]
         for f in as_completed(futs):
             url, got, err = f.result()
             if err:
