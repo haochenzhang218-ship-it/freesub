@@ -5,23 +5,48 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇫🇮 芬兰 (Finland) 01 - xiaohe
+  server: 34.88.172.173
+  port: 443
+  udp: true
+  type: vless
+  uuid: 06e58eed-afc8-4cbf-a0bf-1b7b42e1a87f
+  tls: true
+  reality-opts:
+    public-key: wJwb5WExAnmGiq9mmjtMvoA8E-k10u5VvPegm9RomWU
+    short-id: d4b34bc6b3d2b5ab
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  server: est1313.ggisopi.su
+  port: 443
+  udp: true
+  type: vless
+  uuid: d0f0a880-0df1-48c9-bdf1-5669fb9483ce
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: SB1uC0OEveYjSiS_Nuw9Ld-uVVXWqi794OGnldthY3I
+  servername: est1313.ggisopi.su
+  client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  server: 34.88.172.76
+  port: 443
+  udp: true
+  type: vless
+  uuid: 7238b912-44dd-48fe-ab89-6be3d5034446
+  tls: true
+  reality-opts:
+    public-key: EhvUHgqz3l98xPNiq8r02nbk1NQrnqHWwqR70kKd7gk
+    short-id: f55104a5c6729677
+  servername: www.cloudflare.com
+  client-fingerprint: chrome
+- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
   server: 82.47.186.18
   port: 19290
   udp: true
   type: ss
   cipher: aes-128-gcm
   password: o2rw2hICwu1blrr_gZAl2Q
-- name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: 150.241.71.148
-  port: 448
-  udp: true
-  type: trojan
-  password: 6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV
-  sni: kiev.gosgenarchive.com
-  skip-cert-verify: false
-  network: grpc
-  grpc-opts:
-    grpc-service-name: TrojanGRPC
 proxy-groups:
 - name: PROXIES
   type: select
@@ -29,6 +54,8 @@ proxy-groups:
   - AUTO
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -36,5 +63,7 @@ proxy-groups:
   proxies:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 rules:
 - MATCH,PROXIES
