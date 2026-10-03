@@ -4,30 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
-  server: 149.33.30.176
+- name: 🇶🇦 卡塔尔 (Qatar) 01 - xiaohe
+  server: 34.18.212.19
   port: 443
   udp: true
   type: vless
-  uuid: 5fffad1b-10f0-41ff-abe7-e5a92696d5ef
-  flow: xtls-rprx-vision
+  uuid: b6f775c2-70fd-4247-8d12-82cac46fdd50
   tls: true
   reality-opts:
-    public-key: rk_iTiKEWYK02oF8lCIXrVlM7pWMSYX-Iuaz6Eat5lI
-    short-id: 4b26322b354bd74e
-  servername: www.apple.com
+    public-key: tT6wEOh8ASizQYNRb51QdDlxAksSJbEaBnbQBajc6SQ
+    short-id: c5426331173ca15c
+  servername: www.cloudflare.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇶🇦 卡塔尔 (Qatar) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇶🇦 卡塔尔 (Qatar) 01 - xiaohe
 rules:
 - MATCH,PROXIES
