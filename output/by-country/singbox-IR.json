@@ -1,0 +1,42 @@
+{
+  "log": {
+    "level": "warn"
+  },
+  "outbounds": [
+    {
+      "type": "vless",
+      "tag": "🇮🇷 IR 01 - xiaohe",
+      "server": "mail.loyalsmile.net",
+      "server_port": 2052,
+      "uuid": "ff766b85-d50f-47b7-9b63-6ca4ea128f3f",
+      "transport": {
+        "type": "ws",
+        "path": "/wp-content4"
+      }
+    },
+    {
+      "type": "selector",
+      "tag": "select",
+      "outbounds": [
+        "auto",
+        "🇮🇷 IR 01 - xiaohe"
+      ]
+    },
+    {
+      "type": "urltest",
+      "tag": "auto",
+      "outbounds": [
+        "🇮🇷 IR 01 - xiaohe"
+      ],
+      "url": "https://www.gstatic.com/generate_204"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}
