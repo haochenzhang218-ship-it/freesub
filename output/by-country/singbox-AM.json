@@ -4,14 +4,15 @@
   },
   "outbounds": [
     {
-      "type": "vless",
-      "tag": "🇮🇷 IR 01 - xiaohe",
-      "server": "mail.loyalsmile.net",
-      "server_port": 2052,
-      "uuid": "ff766b85-d50f-47b7-9b63-6ca4ea128f3f",
-      "transport": {
-        "type": "ws",
-        "path": "/wp-content4"
+      "type": "hysteria2",
+      "tag": "🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe",
+      "server": "157.228.69.91",
+      "server_port": 27313,
+      "password": "8bd04756-3beb-4348-82c9-d35453df50ce",
+      "tls": {
+        "enabled": true,
+        "server_name": "spainspeedboostjbl88.qcloud.surf",
+        "insecure": true
       }
     },
     {
@@ -19,14 +20,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇮🇷 IR 01 - xiaohe"
+        "🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇮🇷 IR 01 - xiaohe"
+        "🇦🇲 亚美尼亚 (Armenia) 01 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
