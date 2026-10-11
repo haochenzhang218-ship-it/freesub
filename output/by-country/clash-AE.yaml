@@ -18,7 +18,7 @@ proxies:
   servername: addons.mozilla.org
   client-fingerprint: chrome
 - name: 🇦🇪 阿联酋 (UAE) 02 - xiaohe
-  server: 157.228.155.238
+  server: 157.228.128.59
   port: 443
   udp: true
   type: vless
@@ -26,10 +26,10 @@ proxies:
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: 5BDht3tAZdKEKpJymGlRK9JugOnieA-kMSWz_0FoE0I
-    short-id: 6f76ad09
+    public-key: QnxkyscHouhaLDJHT47beyenVd4LHi62yfJIeRV01Ws
+    short-id: 06e00e7c
   servername: addons.mozilla.org
-  client-fingerprint: random
+  client-fingerprint: chrome
 - name: 🇦🇪 阿联酋 (UAE) 03 - xiaohe
   server: uae.unixzone.us
   port: 22573
