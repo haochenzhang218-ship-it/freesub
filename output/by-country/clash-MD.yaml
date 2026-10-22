@@ -4,30 +4,30 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
-  server: 138.124.4.224
+- name: 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
+  server: 5.252.179.15
   port: 443
   udp: true
   type: vless
-  uuid: 9c794bb7-54fe-4acd-844a-a26209af36c3
+  uuid: 0ab273e4-cea6-41d0-bbab-41071d2fc455
   flow: xtls-rprx-vision
   tls: true
   reality-opts:
-    public-key: 13nLTYkdBEFR-A4CfK2beOx-5LKEsXh1QHPq8Kt52BQ
-    short-id: 7271129440ade8fa
-  servername: login.sakhweb.fyi
+    public-key: XQB2zIgrhD8AtxgYFM8UiiWYt1sLVBLhMg1M4-sGMAY
+    short-id: 296f27de82dad7ff
+  servername: www.bing.com
   client-fingerprint: firefox
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
+  - 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇪🇪 爱沙尼亚 (Estonia) 01 - xiaohe
+  - 🇲🇩 摩尔多瓦 (Moldova) 01 - xiaohe
 rules:
 - MATCH,PROXIES
