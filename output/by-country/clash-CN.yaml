@@ -4,28 +4,31 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
-  server: forwarded.frnhk.xyz
-  port: 46003
+- name: 🇨🇳 CN 01 - xiaohe
+  server: vpn.cintaku.qzz.io
+  port: 443
   udp: true
   type: vless
-  uuid: 6006c9a2-c0a2-4cda-80f2-405b0d790fc8
+  uuid: fc7d2cfe-f5ef-40c8-a848-a0bdc11f6349
+  tls: true
+  servername: vpn.cintaku.qzz.io
+  skip-cert-verify: false
   network: ws
   ws-opts:
-    path: /my1023
+    path: /vlessws
     headers:
-      Host: forwarded.frnhk.xyz
+      Host: vpn.cintaku.qzz.io
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇨🇳 CN 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇲🇾 马来西亚 (Malaysia) 01 - xiaohe
+  - 🇨🇳 CN 01 - xiaohe
 rules:
 - MATCH,PROXIES
