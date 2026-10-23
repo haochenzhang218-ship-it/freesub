@@ -36,7 +36,7 @@ proxies:
   tls: true
   servername: fi1.merky.one
   skip-cert-verify: false
-  client-fingerprint: firefox
+  client-fingerprint: chrome
   network: ws
   ws-opts:
     path: /mky-ws-4f19c8a7
