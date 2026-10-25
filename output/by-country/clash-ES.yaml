@@ -4,29 +4,29 @@ allow-lan: true
 mode: rule
 log-level: info
 proxies:
-- name: 🇧🇷 巴西 (Brazil) 01 - xiaohe
-  server: 92.53.119.212
-  port: 40849
+- name: 🇪🇸 西班牙 (Spain) 01 - xiaohe
+  server: 212.227.235.66
+  port: 2053
   udp: true
   type: vless
-  uuid: 1ef7d97f-3aa5-0001-8521-84cf4794bf7a
-  flow: xtls-rprx-vision
+  uuid: ead0dd61-d398-40ad-80d6-a0e1e516d7d3
   tls: true
   reality-opts:
-    public-key: jkVcZ_b3iWs2FcSjC8Mb1NoRuwPgCH9HpeOOYAXBSU0
-  servername: ru-hub10.lovely.my
+    public-key: 7Y6Xb5Ql_03K25x8yKUSOKI2JTOMyv2nyCcFza90uxk
+    short-id: 29e8dcd2b37aaa7f
+  servername: www.apple.com
   client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
   proxies:
   - AUTO
-  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 01 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
-  - 🇧🇷 巴西 (Brazil) 01 - xiaohe
+  - 🇪🇸 西班牙 (Spain) 01 - xiaohe
 rules:
 - MATCH,PROXIES
