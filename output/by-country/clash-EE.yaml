@@ -16,7 +16,7 @@ proxies:
     public-key: Su5ULcRQKF-0DJIHZeTNEnXHBpyQtizmUrcNIYhZI0E
     short-id: afee962d
   servername: ee1.mycloud1.org
-  client-fingerprint: firefox
+  client-fingerprint: chrome
 - name: 🇪🇪 爱沙尼亚 (Estonia) 02 - xiaohe
   server: 13.143.239.119
   port: 443
