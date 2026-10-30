@@ -32,6 +32,17 @@ proxies:
   servername: www.apple.com
   client-fingerprint: random
 - name: 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  server: tr.privatevip.ir
+  port: 448
+  udp: true
+  type: vless
+  uuid: 7c730089-1791-4828-89b2-86e7e1663063
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: tr.privatevip.ir
+- name: 🇹🇷 土耳其 (Turkey) 04 - xiaohe
   server: 177.3.208.65
   port: 443
   udp: true
@@ -52,6 +63,7 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -60,5 +72,6 @@ proxy-groups:
   - 🇹🇷 土耳其 (Turkey) 01 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 02 - xiaohe
   - 🇹🇷 土耳其 (Turkey) 03 - xiaohe
+  - 🇹🇷 土耳其 (Turkey) 04 - xiaohe
 rules:
 - MATCH,PROXIES
