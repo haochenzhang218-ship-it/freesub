@@ -27,7 +27,7 @@
         "server_name": "twitch.tv",
         "utls": {
           "enabled": true,
-          "fingerprint": "chrome"
+          "fingerprint": "safari"
         },
         "reality": {
           "enabled": true,
@@ -102,14 +102,14 @@
       }
     },
     {
-      "type": "vless",
+      "type": "trojan",
       "tag": "🇨🇭 瑞士 (Switzerland) 07 - xiaohe",
-      "server": "149.33.15.213",
+      "server": "208.69.78.19",
       "server_port": 443,
-      "uuid": "054362fb-e485-4a3f-9568-4c5b0f60e074",
+      "password": "0ab6c98dae3b48e8b9c4a776b6c9c19a",
       "tls": {
         "enabled": true,
-        "server_name": "swz.proxyplankton.ru",
+        "server_name": "www.yourultimateprofessionalcareerhub.com",
         "insecure": false
       }
     },
