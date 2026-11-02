@@ -16,18 +16,20 @@ proxies:
     headers:
       Host: 45.144.234.157
 - name: 🇫🇮 芬兰 (Finland) 02 - xiaohe
-  server: fin2.vpngold.ru
-  port: 8443
+  server: hw6.divarkhaghazi.com
+  port: 465
   udp: true
   type: vless
-  uuid: a52fd54b-ba4d-4d11-8e00-301e2646cd66
-  flow: xtls-rprx-vision
+  uuid: 09f30c46-3964-41ce-882a-72aee83ddd42
   tls: true
-  reality-opts:
-    public-key: 1H1DiBCBB7fpALV71pH1q66ePybBFlVOcxftdlQimQ8
-    short-id: 385cb18df0892069
-  servername: fin2.vpngold.ru
+  servername: hw6.divarkhaghazi.com.
+  skip-cert-verify: false
   client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /
+    headers:
+      Host: hw6.divarkhaghazi.com.
 - name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
   server: 95.216.27.15
   port: 2053
@@ -40,6 +42,19 @@ proxies:
     short-id: 10351b07c712d2a2
   servername: www.cloudflare.com
   client-fingerprint: ''
+- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  server: fin2.vpngold.ru
+  port: 8443
+  udp: true
+  type: vless
+  uuid: a52fd54b-ba4d-4d11-8e00-301e2646cd66
+  flow: xtls-rprx-vision
+  tls: true
+  reality-opts:
+    public-key: 1H1DiBCBB7fpALV71pH1q66ePybBFlVOcxftdlQimQ8
+    short-id: 385cb18df0892069
+  servername: fin2.vpngold.ru
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
@@ -48,6 +63,7 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
@@ -56,5 +72,6 @@ proxy-groups:
   - 🇫🇮 芬兰 (Finland) 01 - xiaohe
   - 🇫🇮 芬兰 (Finland) 02 - xiaohe
   - 🇫🇮 芬兰 (Finland) 03 - xiaohe
+  - 🇫🇮 芬兰 (Finland) 04 - xiaohe
 rules:
 - MATCH,PROXIES
