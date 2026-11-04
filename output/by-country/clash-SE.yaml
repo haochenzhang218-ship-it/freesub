@@ -5,30 +5,6 @@ mode: rule
 log-level: info
 proxies:
 - name: 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  server: 5.178.109.174
-  port: 14430
-  udp: true
-  type: vless
-  uuid: 80de563a-cac8-40ea-8cb0-4cb082dd92f9
-  network: ws
-  ws-opts:
-    path: /vless
-    headers:
-      Host: 5.178.109.174
-- name: 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  server: 89.125.37.1
-  port: 443
-  udp: true
-  type: vless
-  uuid: 518079db-d88d-4035-bbf4-ddd1f9cf1e5f
-  flow: xtls-rprx-vision
-  tls: true
-  reality-opts:
-    public-key: nF_kEdHan2dgl2tlQ_dtNaKZ4oORhuiFrXHbtEDcT2Q
-    short-id: 2d6d073dc88f22a8
-  servername: se.frgcdn.xyz
-  client-fingerprint: chrome
-- name: 🇸🇪 瑞典 (Sweden) 03 - xiaohe
   server: 70.34.207.14
   port: 443
   udp: true
@@ -42,15 +18,11 @@ proxy-groups:
   proxies:
   - AUTO
   - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
 - name: AUTO
   type: url-test
   url: https://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 🇸🇪 瑞典 (Sweden) 01 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 02 - xiaohe
-  - 🇸🇪 瑞典 (Sweden) 03 - xiaohe
 rules:
 - MATCH,PROXIES

@@ -31,12 +31,36 @@
       }
     },
     {
+      "type": "vless",
+      "tag": "🇵🇱 波兰 (Poland) 03 - xiaohe",
+      "server": "84.23.52.120",
+      "server_port": 28449,
+      "uuid": "4d8132cb-f4e3-428c-91ff-2b4f7a868551",
+      "tls": {
+        "enabled": true,
+        "server_name": "pl.sparxiecn.com",
+        "insecure": false,
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        }
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/lovelive",
+        "headers": {
+          "Host": "pl.sparxiecn.com"
+        }
+      }
+    },
+    {
       "type": "selector",
       "tag": "select",
       "outbounds": [
         "auto",
         "🇵🇱 波兰 (Poland) 01 - xiaohe",
-        "🇵🇱 波兰 (Poland) 02 - xiaohe"
+        "🇵🇱 波兰 (Poland) 02 - xiaohe",
+        "🇵🇱 波兰 (Poland) 03 - xiaohe"
       ]
     },
     {
@@ -44,7 +68,8 @@
       "tag": "auto",
       "outbounds": [
         "🇵🇱 波兰 (Poland) 01 - xiaohe",
-        "🇵🇱 波兰 (Poland) 02 - xiaohe"
+        "🇵🇱 波兰 (Poland) 02 - xiaohe",
+        "🇵🇱 波兰 (Poland) 03 - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
