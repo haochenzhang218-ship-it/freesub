@@ -18,17 +18,9 @@
     {
       "type": "vmess",
       "tag": "🇸🇬 新加坡 (Singapore) 02 (家宽) - xiaohe",
-      "server": "116.88.224.217",
-      "server_port": 8080,
-      "uuid": "6f4f0eb5-fe86-41ca-eccb-a6ca68f88d9b",
-      "security": "auto"
-    },
-    {
-      "type": "vmess",
-      "tag": "🇭🇰 中国香港 (Hong Kong) 03 (移动家宽) - xiaohe",
-      "server": "zfd-hkv2.kunlun01dns.com",
-      "server_port": 16116,
-      "uuid": "0802ac03-7973-39ef-a019-ba02de6c01e1",
+      "server": "195.133.135.238",
+      "server_port": 10086,
+      "uuid": "b831381d-6324-4d53-ad4f-8cda48b30811",
       "security": "auto"
     },
     {
@@ -37,8 +29,7 @@
       "outbounds": [
         "auto",
         "🇺🇸 美国 (United States) 01 (移动家宽) - xiaohe",
-        "🇸🇬 新加坡 (Singapore) 02 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 03 (移动家宽) - xiaohe"
+        "🇸🇬 新加坡 (Singapore) 02 (家宽) - xiaohe"
       ]
     },
     {
@@ -46,8 +37,7 @@
       "tag": "auto",
       "outbounds": [
         "🇺🇸 美国 (United States) 01 (移动家宽) - xiaohe",
-        "🇸🇬 新加坡 (Singapore) 02 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 03 (移动家宽) - xiaohe"
+        "🇸🇬 新加坡 (Singapore) 02 (家宽) - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
