@@ -6,147 +6,19 @@
     {
       "type": "vless",
       "tag": "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe",
-      "server": "twntxbnczyhgd.jiedddym.com",
+      "server": "60.248.219.78",
       "server_port": 443,
-      "uuid": "dee59b19-a32f-4d35-b1ee-3708e7d06efc",
-      "flow": "xtls-rprx-vision",
+      "uuid": "c1c04450-bf71-4049-ad0c-9cf6d94d9f1f",
       "tls": {
         "enabled": true,
-        "server_name": "fastcdn.hoyoverse.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "fGRViNlqExmn0EvkfZmptnn4a9zei819zpLoMRDpRTw",
-          "short_id": "8fe3fe59c02a29"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe",
-      "server": "twczsndddbgwmzzxsmhmdd.jiedddym.com",
-      "server_port": 443,
-      "uuid": "dee59b19-a32f-4d35-b1ee-3708e7d06efc",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "fastcdn.hoyoverse.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "t5zRzX3vAWoMnOKdtnZo1_9cgCaYqN2Fuw0XroL0tyo",
-          "short_id": "b157c12e4408c5"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇭🇰 中国香港 (Hong Kong) 03 (家宽) - xiaohe",
-      "server": "nlmnbgwlhmnggdd.jiedddym.com",
-      "server_port": 443,
-      "uuid": "dee59b19-a32f-4d35-b1ee-3708e7d06efc",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "fastcdn.hoyoverse.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "EtyX9RyMycYtdqTpNs2VGTFw9swTDn_ey0qRb5XZR08",
-          "short_id": "f3099404cd2d"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇭🇰 中国香港 (Hong Kong) 04 (家宽) - xiaohe",
-      "server": "wylldnlmch.jiedddym.com",
-      "server_port": 443,
-      "uuid": "dee59b19-a32f-4d35-b1ee-3708e7d06efc",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "fastcdn.hoyoverse.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "OmUiIEW7EXw5mmYBf1Ei7tXbC3fAYYzx9KzDr2Sudm0",
-          "short_id": "e2e01b5602eb3f"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe",
-      "server": "wwczsndbqwlhmdd.jiedddym.com",
-      "server_port": 443,
-      "uuid": "dee59b19-a32f-4d35-b1ee-3708e7d06efc",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "fastcdn.hoyoverse.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "O9yFnoTlSgYL1B8cPd_30-O_bnTdYjBrXiqoRVh3rDw",
-          "short_id": "0ad46a758e5405b1"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe",
-      "server": "wwszhrmghgdgyltssbkqf.jiedddym.com",
-      "server_port": 443,
-      "uuid": "dee59b19-a32f-4d35-b1ee-3708e7d06efc",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "fastcdn.hoyoverse.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "g5hU9u7Gb6_e2PzTzz7PtVcsz6Whx_w9U5YJp0WBjAY",
-          "short_id": "f1d3a529563fec"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "🇰🇷 韩国 (South Korea) 07 (家宽) - xiaohe",
-      "server": "rdclzxhxdnbqjcrzqdj.jiedddym.com",
-      "server_port": 20903,
-      "uuid": "dee59b19-a32f-4d35-b1ee-3708e7d06efc",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "fastcdn.hoyoverse.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "ios"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Cp7TKdme39Ef-MAmZxJJthMbX8YHC2PdDgwnnUAEimQ",
-          "short_id": "34a4fa87a3ae811a"
+        "server_name": "ty986gfazs.cainiaohub.xyz",
+        "insecure": true
+      },
+      "transport": {
+        "type": "ws",
+        "path": "/81574b6b-c9d7-44a0-b83d-dad56e8cb530",
+        "headers": {
+          "Host": "ty986gfazs.cainiaohub.xyz"
         }
       }
     },
@@ -155,26 +27,14 @@
       "tag": "select",
       "outbounds": [
         "auto",
-        "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 03 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 04 (家宽) - xiaohe",
-        "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe",
-        "🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe",
-        "🇰🇷 韩国 (South Korea) 07 (家宽) - xiaohe"
+        "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe"
       ]
     },
     {
       "type": "urltest",
       "tag": "auto",
       "outbounds": [
-        "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 02 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 03 (家宽) - xiaohe",
-        "🇭🇰 中国香港 (Hong Kong) 04 (家宽) - xiaohe",
-        "🇹🇼 中国台湾 (Taiwan) 05 (家宽) - xiaohe",
-        "🇹🇼 中国台湾 (Taiwan) 06 (家宽) - xiaohe",
-        "🇰🇷 韩国 (South Korea) 07 (家宽) - xiaohe"
+        "🇹🇼 中国台湾 (Taiwan) 01 (家宽) - xiaohe"
       ],
       "url": "https://www.gstatic.com/generate_204"
     },
