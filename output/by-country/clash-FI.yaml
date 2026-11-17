@@ -29,14 +29,6 @@ proxies:
     headers:
       Host: 45.144.234.157
 - name: 🇫🇮 芬兰 (Finland) 03 - xiaohe
-  server: 177.202.75.56
-  port: 443
-  udp: true
-  type: hysteria2
-  password: 146d567c-6335-4e63-a8aa-7ec068642440
-  sni: fi1.obxodvpn.us
-  skip-cert-verify: false
-- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
   server: 94.183.164.119
   port: 24433
   udp: true
@@ -44,17 +36,27 @@ proxies:
   password: 549766c3-fa5f-471e-8031-ffc1f8d5064f
   sni: lakes.blog-forme.ru
   skip-cert-verify: false
+- name: 🇫🇮 芬兰 (Finland) 04 - xiaohe
+  server: 65.108.240.210
+  port: 39018
+  udp: true
+  type: vmess
+  uuid: 8ca123a8-720b-47c5-bd0c-637431418b09
+  alterId: 0
+  cipher: auto
 - name: 🇫🇮 芬兰 (Finland) 05 - xiaohe
-  server: 104.171.133.213
+  server: 107.181.151.128
   port: 443
   udp: true
   type: vless
-  uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+  uuid: 8cc7d0fc-1b83-4ee3-b51d-8a03a9b19435
   flow: xtls-rprx-vision
   tls: true
-  servername: mirror-75.topp-con.xyz
-  skip-cert-verify: false
-  client-fingerprint: firefox
+  reality-opts:
+    public-key: zfsjt2A8ur0qHWIuCG7F9W4wZN3VTuL6fkTljC-9R0s
+    short-id: 87174b37ce3b
+  servername: www.microsoft.com
+  client-fingerprint: chrome
 proxy-groups:
 - name: PROXIES
   type: select
